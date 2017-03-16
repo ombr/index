@@ -4,9 +4,7 @@
   "website": "Index",
   "success_url": "/",
   "addons": [],
-  "buildpacks": [
-    { "url": "https://github.com/heroku/heroku-buildpack-nodejs" },
-  ],
+  "buildpacks": [],
   "env": {
     "NPM_CONFIG_PRODUCTION": "false"
   },
@@ -14,7 +12,7 @@
     "web": {
       "quantity": 1,
       "size": "free"
-    },
+    }
   },
   "image": "heroku/nodejs"
 }
