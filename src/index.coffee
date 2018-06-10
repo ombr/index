@@ -33,7 +33,8 @@ $ ->
             xml:space="preserve"></svg>')
           $svg.addClass('drawing')
           console.log $svg
-          $div = $('<div style="position: absolute; top: 50px; bottom: 50px; left: 50px; right: 50px;"></div>')
+          $div = $('<div class="position: absolute; top: 50px; bottom: 50px; \
+            left: 50px; right: 50px;"></div>')
           $div.append($svg)
           $(position.elem).append($div)
           drawing = new Drawing($svg[0])

@@ -141,7 +141,10 @@ class Drawing
   addText: (input)->
     size = Math.round(DrawingUtils.size(@svg) * 0.05)
     referentiel = new Referentiel(@svg)
-    center = referentiel.global_to_local([window.innerWidth/2, window.innerHeight/2])
+    center = referentiel.global_to_local([
+      window.innerWidth/2,
+      window.innerHeight/2
+    ])
     group = DrawingUtils.create_element(@svg, 'g')
     group.setAttribute('data-sharinpix-type', 'text')
     text = DrawingUtils.create_element(
@@ -199,7 +202,9 @@ class Drawing
     )
     image.setAttributeNS("http://www.w3.org/1999/xlink", 'xlink:href', dataUrl)
     referentiel = new Referentiel(@svg)
-    center = referentiel.global_to_local([window.innerWidth/2, window.innerHeight/2])
+    center = referentiel.global_to_local(
+      [ window.innerWidth/2, window.innerHeight/2 ]
+    )
     scale = (DrawingUtils.size(@svg) / 8) / width
     DrawingUtils.apply_matrix(
       group,

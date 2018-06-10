@@ -2,10 +2,11 @@ import Referentiel from 'referentiel'
 import Geometry from './geometry.coffee'
 DrawingUtils = {
   apply_matrix: (element, m)->
+    list = [m[0][0], m[1][0], m[0][1], m[1][1], m[0][2], m[1][2]]
     DrawingUtils.style(
       element,
       'transform',
-      "matrix(#{[m[0][0], m[1][0], m[0][1], m[1][1], m[0][2], m[1][2]].join(', ')})"
+      "matrix(#{list.join(', ')})"
     )
   style: (element, key, value)->
     if key == 'transform'
@@ -17,7 +18,9 @@ DrawingUtils = {
     element.parentNode.removeChild(element)
   size: (element)->
     referentiel = new Referentiel(element)
-    center = referentiel.global_to_local([window.innerWidth/2, window.innerHeight/2])
+    center = referentiel.global_to_local(
+      [ window.innerWidth/2, window.innerHeight/2 ]
+    )
     top = referentiel.global_to_local([0, 0])
     Geometry.distance(center, top)
   create_element: (parent, name, attributes = {})->

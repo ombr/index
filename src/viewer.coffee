@@ -1,4 +1,4 @@
-# import css from './viewer.sass'
+import css from './viewer.sass'
 import Geometry from './geometry.coffee'
 import DownListener from './down_listener.coffee'
 import MoveListener from './move_listener.coffee'

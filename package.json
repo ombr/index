@@ -50,6 +50,6 @@
     "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {
-    "referentiel": "0.0.7"
+    "referentiel": "0.0.8"
   }
 }
