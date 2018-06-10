@@ -3,11 +3,13 @@ ExtractTextPlugin = require("extract-text-webpack-plugin")
 HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports =
   entry:
-    "index": "./src/index.coffee",
-    "test": "./src/test.coffee",
+    "index": "./src/index.coffee"
+    "test": "./src/test.coffee"
+    "mocha": "./node_modules/mocha/mocha.js"
     "index.min": "./src/index.coffee"
     "viewer": "./src/viewer.coffee"
     "viewer.min": "./src/viewer.coffee"
+    "geometry": "./src/geometry.coffee"
   output:
     path: __dirname,
     filename: "dist/[name].js",

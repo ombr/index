@@ -1,4 +1,3 @@
-import expect from 'expect.js'
 import Geometry from '../src/geometry.coffee'
 
 export default ->
