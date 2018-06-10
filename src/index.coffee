@@ -1,4 +1,5 @@
 import Viewer from './viewer.coffee'
+import Drawing from './drawing.coffee'
 # import Drawer from './viewer.coffee'
 import $ from '../node_modules/jquery/dist/jquery'
 window.$ = $
@@ -17,12 +18,27 @@ $ ->
       return true
   window.v = new Viewer(
     elem: document.getElementsByClassName('viewer')[0]
-    callback: (changes, positions)->
+    change: (changes, positions)->
+      console.log arguments...
       for change in changes
         $('p', change.elem).html(change.index)
         $img = $('img', change.elem)
+      $('svg').remove()
+      for position in positions
+        console.log window.v.index, position.index
+        if window.v.index == position.index
+          $svg = $('<svg xmlns="http://www.w3.org/2000/svg" \
+            xmlns:xlink="http://www.w3.org/1999/xlink" \
+            version="1.1" \
+            xml:space="preserve"></svg>')
+          $svg.addClass('drawing')
+          console.log $svg
+          $div = $('<div style="position: absolute; top: 50px; bottom: 50px; left: 50px; right: 50px;"></div>')
+          $div.append($svg)
+          $(position.elem).append($div)
+          drawing = new Drawing($svg[0])
         # console.log $img.attr('src') + Math.round(Math.random()*9)
-        $img.attr('src', $img.attr('src') + Math.round(Math.random()*9))
+        # $img.attr('src', $img.attr('src') + Math.round(Math.random()*9))
     destroyed: (e)->
       $(e).remove()
   )
@@ -41,26 +57,3 @@ $ ->
 # v.$items = [0, 1, 2]
 # v._rotate_items(1)
 # console.log v.$items
-
-class DessinPath
-  constructor: (@dessin)->
-  start: (event)->
-    [@lastX, @lastY] = @position(event)
-    @listener = (e)=>
-      e.preventDefault()
-      e.stopPropagation()
-      [@x, @y] = @position(event)
-    @dessin.$element.on 'touchmove mousemove', @listener
-  end: ->
-
-class Dessin
-  constructor: (@element)->
-    @$element = $(@element)
-    @$element.on 'mousedown touchstart', (e)->
-      @tool = new @Tool(this)
-      @tool.start((svg)->
-
-      )
-
-dessin = new Dessin
-dessin.set_tool(Dessin.Path)

@@ -7,10 +7,8 @@ body, html
   background: pink
 .viewer
   //margin: 10% 25%
-  // width: 300px
-  // height: 300px
-  height: 100%
-  width: 100%
+  //width: 30%
+  //height: 300px
   //position: relative
   overflow: hidden
   position: fixed
@@ -19,18 +17,9 @@ body, html
   bottom: 0
   right: 0
 
-img
-  max-width: 100%
-  height: auto
+.viewer-annimate .viewer-content
+  transition: transform .3s ease-out
 .viewer-container
-  p
-    left: 0
-    right: 0
-    text-align: center
-    background: rgba(0, 0, 0, 0.3)
-    text-shadow: 0 0 2px black
-    position: absolute
-  opacity: 1
   position: absolute
   width: 100%
   height: 100%
@@ -38,12 +27,30 @@ img
   font-size: 20px
   text-align: center
   line-height: 50px
+.viewer-container-current
+  left: 0
+.viewer-container-previous
+  left: -100%
+.viewer-container-next
+  left: 100%
+.viewer-container-visible
+  z-index: 1
+.viewer-container-current
+  z-index: 2
+.viewer-content
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+.viewer-background
+  background-color: black
+  opacity: 0.9
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
 
 .image
   margin: 0 auto
-
-
-svg
-  width: 100%
-  height: 100%
-  background: pink
