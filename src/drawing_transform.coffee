@@ -1,3 +1,5 @@
+import Referentiel from 'referentiel'
+import Geometry from './geometry.coffee'
 class DrawingTransform
   constructor: (@element, @options)->
     @destroyed = false

@@ -1,6 +1,5 @@
 import Viewer from './viewer.coffee'
 import Drawing from './drawing.coffee'
-# import Drawer from './viewer.coffee'
 import $ from '../node_modules/jquery/dist/jquery'
 window.$ = $
 
@@ -30,11 +29,11 @@ $ ->
           $svg = $('<svg xmlns="http://www.w3.org/2000/svg" \
             xmlns:xlink="http://www.w3.org/1999/xlink" \
             version="1.1" \
-            xml:space="preserve"></svg>')
+            xml:space="preserve" viewport="0 0 1000 1000"></svg>')
           $svg.addClass('drawing')
           console.log $svg
-          $div = $('<div class="position: absolute; top: 50px; bottom: 50px; \
-            left: 50px; right: 50px;"></div>')
+          $div = $("<div class=\"position: absolute; top: 50px; bottom: 50px; \
+            left: 50px; right: 50px;\"></div>")
           $div.append($svg)
           $(position.elem).append($div)
           drawing = new Drawing($svg[0])
